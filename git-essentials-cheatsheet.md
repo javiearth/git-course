@@ -1,4 +1,4 @@
-# Git cheatsheet
+# Git Essentials cheatsheet
 <small>More information in my [git-course](https://github.com/javiearth/git-course).</small>
 
 ### Basic commands

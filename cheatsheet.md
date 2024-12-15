@@ -27,7 +27,7 @@
 
 | Syntax | Description |
 |---|---|
-|git reset --soft HEAD~1 | Deletes the last commit but preserves stage and working directory | <!-- and other numbers? -->
+|git reset --soft HEAD~N | (Substitute N with a number) Deletes the last N commits but preserves stage and working directory |
 |git reset --soft hash-number | Deletes all commits made after the specified one but preserves stage and working directory |
 |git reset --mixed hash-number | Deletes all commits made after the specified and the stage, but preserves the working directory (default reset, you can use it without '--mixed')|
 |git reset --hard hash-number | Deletes all commits made after the specified one, as well as stage and working directory |
@@ -38,7 +38,7 @@
 |---|---|
 |git branch new-branch |Creates a new branch |
 |git branch -m new-branchs-name |Rename the current branch |
-|git switch branch-name |Switches to the specified branch |
+|git switch branch-name |Switches to the specified branch (modern alternative to checkout)|
 |git checkout branch-name |Switches to the specified branch |
 |git branch -d branch-name |Deletes the specified branch (you can use --delete instead of -d) |
 |git merge branch-name |Copies the last commit of the specified branch into the current branch and creates a merge commit |
@@ -52,7 +52,7 @@
 |git stash |Saves the stage and working directory to the stash area |
 |git stash pop |Recovers stage and working directory from the last stash and deletes it|
 |git stash pop stash@{index}|Recovers stage and working directory from the indexed stash and deletes it|
-|git stash apply | ecovers stage and working directory from the last stash preserving the stash|
+|git stash apply |Recovers stage and working directory from the last stash preserving the stash|
 |git stash list |Displays the stash list |
 |git stash drop |Deletes the last stash |
 |git stash drop stash@{index} |Deletes the specified stash |

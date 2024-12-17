@@ -1,5 +1,5 @@
 # Git course
-Version: 0.2.0
+Version: 0.2.1
 
 ## About this course.
 
@@ -524,6 +524,12 @@ Access to the file where your public SSH key is located and copy it, from the be
 **Save your public SSH in the platform**
 
 The key you've just copy must be added to your account in the platform you're using (try seaching something similar to setting > authentication > SSH).
+
+```
+PRACTICE:
+1. Create a profile in a platform like GitHub or GitLab.
+2. Follow the steps in this section so far and add a SSH key to you GitHub/GitLab account.
+```
 
 ### Conecting to the repository for the first time.
 

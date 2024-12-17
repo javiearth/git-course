@@ -1,7 +1,7 @@
 # Git course
-Version: 0.2.1
+<small>Version: 0.2.2</small>
 
-## About this course.
+### About this course.
 
 This is a brief course that teaches by examples, its aim is to you achive a level of understanding about git enough to work in most projects. 
 
@@ -9,7 +9,7 @@ In the course a propose a simple example of a project to apply the concepts I te
 
 This course is based on my personal experience practicing Git commands on my computer. The content reflects what I learned through experimentation, asking questions, and researching general concepts online.
 
-This course is under development, so new section will be added in the following weeks/months. The current state of the course is:
+This course is under development, so new sections will be added in the following weeks/months. The current state of the course is:
 
 - [X] Git Essentials: covers day to day tasks.
 
@@ -20,11 +20,13 @@ This course is under development, so new section will be added in the following 
 **Important**
 Git commands are the same no matter which OS you're working with. Anyway, the commands in the *installation and previous knowledge* section may be different for you OS. Apart from that, everything should be same in your machine.
 
-## Introduction to git.
+## 1. Git Essentials
+
+### 1.1 Introduction to git.
 
 Git is an open-source, distributed, version control software created by Linus Torvalds while working on Linux. While using git we work in local (in our computer only). There are online platforms that use git to and are designed for working teams developing together. Some of the most famous platforms are GitHub and GitLab. A section about how to work with GitHub will be added to this course soon.
 
-## Previous knowledge (skip if you are familiar with the Linux terminal).
+### 1.2 Previous knowledge (skip if you are familiar with the Linux terminal).
 
 *Important: The dollar symbol ($) means a new input in your terminal. You don't have to write it.*
 
@@ -58,11 +60,11 @@ PRACTICE:
 That's all, let's start with git.</small>-->
 <small>If you want to practice more commands write 'linux commands cheatsheet' in a search engine.</small>
 
-## Installation.
+### 1.3 Installation.
 
 In Unix systems (Linux and MacOS) git is usually already installed. You can check if git is installed just typing `git` on your terminal. Anyway, you can install git typing `sudo apt install git` in the Linux terminal.
 
-## Git configuration.
+### 1.4 Git configuration.
 
 We need an username and an email to start working with git, so we need to configure git using the next commands:
 
@@ -75,7 +77,7 @@ Aclaration: we write the command `git config` followed by the configuration leve
 
 *If you want to work with GitHub is important that you use one of the email addresses you have verified in your GitHub account. GitHub uses email addresses to link all your contributions to your profile.*
 
-## Starting a version control of your project.
+### 1.5 Starting a version control of your project.
 
 Create a new directory with the name of our project: awesome-recipes ( $ mkdir awesome-recipes ). Change to the directory you've just created ( $ cd awesome-recipes ) and write:
 
@@ -113,9 +115,6 @@ When we do a commit, git saves a snapshot of our project. You need to add a desc
 
 Git has taken a snapshop of your project. If you run the `git status` command again you'll see there are no changes to save in your git repository, it is up to date.
 
-<!--
-*Git can display the changes in each file with the command `git diff`, this prints in your terminal the changes done in every file since the last commit (you don't need to do `git status`, you can use it at any time).*
--->
 Let's practice a bit more, write a recipe in recipes.md and save the file (copy the spanish omelette recipe from [example-recipes.md](https://github.com/javiearth/git-course/example-recipes.md) I've created).
 
 Run `$ git status` again. You'll see the same as before, because we have modified 'recipes.md' again. 
@@ -152,7 +151,7 @@ After each commit hash, the log shows its author and the date it was created, as
 
 This structure will be repeated for each commit.
 
-## How git works: staging and working directory
+### 1.6 How git works: staging and working directory
 
 Before moving any forward it is useful to clarify some concepts:
 
@@ -169,7 +168,7 @@ Did you add changes to the stage but now you regret it? Don't worry! Use `$ git 
 
 
 
-## Moving among commits.
+### 1.7 Moving among commits.
 
 One of the interesting things about a version control program like git is to be able to do and undo changes, so we can recover a version which works in the case something goes wrong while developing.
 
@@ -197,7 +196,7 @@ You can continue working again in your project from this version as if the last 
 
 Using `git checkout` with the name of a branch moves the HEAD (where we're working) to the last commit of that branch. Alternatively you can write the hash if you want, but in this case this is faster.
 
-## Discarding changes and recovering versions.
+### 1.8 Discarding changes and recovering versions.
 
 The command checkout allows us to move between commits, but doesn't change the history of the project.
 
@@ -269,7 +268,7 @@ PRACTICE:
 - Is 'hard-reset.txt' in the working directory? If so, delete it.
 ```
 
-## Tagging
+### 1.9 Tagging
 
 Adding comments in every commit is important to track quickly all changes we've done, but it is also important to highlight all versions that are special for some reason. We can do this adding tags to commits. A tag will be highlighted in the log, so we can easily track them.
 
@@ -288,11 +287,11 @@ To delete a tag use any of these commands:
 
 > In git commands, you can usually use -d or --delete for deletting options.
 
-## Branches.
+### 1.10 Branches.
 
 It is useful to separate the development of our project in branches because it opens the possibility to add features and make changes without compromising the safety of our project. It is also useful to have a branch where you work more often and another to save just the very important updates that you don't want to compromise for any reason.
 
-### Renaming branches.
+#### 1.10.1 Renaming branches.
 
 It is common in the software development industry yo name the main branch as, well, main. To rename a branch we use `$ git branch -m new-branch-name`, so to rename master as main type:
 
@@ -300,7 +299,7 @@ It is common in the software development industry yo name the main branch as, we
 
 That looks more professional!
 
-### Creating branches.
+#### 1.10.2 Creating branches.
 
 Instead of editing the main branch of our project it is a common practice to use another branch where we do the changes just in case something goes wrong. So let's create a new branch to add more recipes. To do so we use `git branch` followed by the name of the new branch. Creat one branch named 'asadillo-manchego'.
 
@@ -308,7 +307,7 @@ Instead of editing the main branch of our project it is a common practice to use
 
 (We're learning more than just git).
 
-### Switching between branches.
+#### 1.10.3 Switching between branches.
 
 There are two ways to change to another branch, one you already know because you've used it: checkout (e.g. `$git checkout asadillo-anchego`). But let's try another one that is more modern: `swtich`.
 
@@ -328,7 +327,7 @@ Great! You can check the changes with `git log` and `git reflog`. Let's try the 
 
 The HEAD points to 'asadillo-manchego' branch and it is located in the last commit ('add asadillo manchego to recipes.md'). This branch is one commit ahead of the 'main' branch. We can now switch between different verions of our project by switching between branches with `git chechout` or `git switch`. Do you see how convenient this is?
 
-### Combining branches with merge.
+#### 1.10.4 Combining branches with merge.
 
 After testing the new version of our project and check that everything works as it should work it is time to apply those changes to the branch 'main'. 
 
@@ -354,7 +353,7 @@ By typing `$ git log` you'll see just the merge commit and the previous ones mad
 
 Now you see a graphic that shows how asadillo-manchego branch merged into the branch main and also all its commits.
 
-### Deleting branches.
+#### 1.10.5 Deleting branches.
 
 The branch asadillo-manchego has served its purpose and is not longer needed, we can get rid of it with this command:
 
@@ -372,7 +371,7 @@ PRACTICE (important):
 (Do not delete the branch neither merge it, we'll use it to learn something new in the next section!)
 ```
 
-## Cherry-picking.
+### 1.11 Cherry-picking.
 
 If you made it until here, congratulations! You know almost every day to day git commands. Let's celebrate with learning cherry-picking.
 
@@ -389,7 +388,7 @@ $ git cherry-pick 6c3fb3825e4982f665eda06ecf94e04f868cb3ec
 ```
 Open the file recipe.md and take a look. Only the second recipe (Banana Oat Pancakes has been added to the file, but the hummus recipe is missing. This is because you've only applied the changes done in the second commit.
 
-## Conflicts
+### 1.12 Conflicts
 
 Try to update the branch 'main' with the commits in the branch 'new-recipes'. You can use cherry-pick or merge, it's up to you. 
 
@@ -413,7 +412,7 @@ How to solve a conflict?
 
 You can delete the branch 'new-recipes' now.
 
-### Rebase
+### 1.13 Rebase
 
 This is the last command I'll tech you in Git Essentials about working with branches.
 
@@ -435,7 +434,7 @@ feature:             \---C'---D'
 ```
 Notice that the commits in feature after rebase (C' and D') are different from those before rebase (C and D).
 
-## The stash.
+### 1.14 The stash.
 
 Sometimes we are working in one branch and we need to change to another, but we don't want to commit any changes yet. Or maybe we want to clean our working directory for some reason, but we don't want to lose the changes we made. In these cases, we can use the stash.
 
@@ -482,13 +481,13 @@ PRACTICE:
 11. Clean the stash completely.
 ```
 
-## Git remote
+### 1.15 Git remote
 
 In spite that git is very useful working in local, it shanes in cloud environments where teams of software developers work remotely. There are different solutions for that (GitHub, GitLab, Bitbucket, SourceForge...), but the commands you'll use to work with your remote repository are the same, no matter in which platform it is located.
 
 These platforms store repositories in the cloud, so teams of developers can work remotely in the same project. The repositories are the same you have in your machine, but they are accesible from anywhere. The only thing that changes is where they are located. The way you work is the same with the diference that you have to send or request information from the remote repository in a few ocassions.
 
-### Authentication
+#### 1.15.1 Authentication
 
 You need to authenticate to the platform to access the remote repository. There are different options to authenticate but SSH keys are widely spreaded and they are very secure. 
 
@@ -531,7 +530,7 @@ PRACTICE:
 2. Follow the steps in this section so far and add a SSH key to you GitHub/GitLab account.
 ```
 
-### Conecting to the repository for the first time.
+#### 1.15.2 Conecting to the repository for the first time.
 
 Create a new repository in your account, for example, I created git-course in GitHub for this course. The full URL is https://guthub.com/javiearth/git-course. **IMPORTANT** Do not add any file (e.g., README.md) because it creates conflicts that you have to solve later.
 
@@ -561,7 +560,7 @@ git@github.com:username/repository-name.git(fetch)
 git@github.com:username/repository-name.git(push)
 ```
 
-### Working in your own remote repository
+#### 1.15.3 Working in your own remote repository
 
 You can start sharing your developing skills to the world by uploading to the cloud your own individual repository (or you cam make it private, it doesn't change anything about how you work).
 
@@ -607,12 +606,12 @@ You already know merge. The second part of the command `git pull` is to merge or
 
 Summaryzing:
 
-The command `$ git pull origin main` is simmilar to:
+The command `$ git pull origin branch-name` is simmilar to:
 ```
-$ git fetch origin main
-$ git merge origin/main
+$ git fetch origin branch-name
+$ git merge origin/branch-name
 ```
-*Remember to switch to your local branch main before merge*
+*Remember to switch to your local branch 'branch-name' before merge*
 
 ```
 PRACTICE:
@@ -624,9 +623,9 @@ PRACTICE:
 5. Update the local repository.
 ```
 
-## Git Essentials cheatsheet
+### 1.16 Git Essentials cheatsheet
 
-### Basic commands
+#### Basic commands
 
 | Syntax | Description |
 |---|---|
@@ -642,7 +641,7 @@ PRACTICE:
 |git reflog |Shows every move of the HEAD and local references, including resets, deleted commits, rebase, checkouts... |
 |git checkout commit-hash |Recovers the working directory of the specified commit |
 
-### Tags
+#### Tags
 
 | Syntax | Description |
 |---|---|
@@ -650,7 +649,7 @@ PRACTICE:
 |git tag tag-name commit-hash | Adds a tag to the specified commit |
 |git tag -d tag-name | Deletes the specified tag (you can use --delete instead of -d) |
 
-### Reset
+#### Reset
 
 | Syntax | Description |
 |---|---|
@@ -659,7 +658,7 @@ PRACTICE:
 |git reset --hard hash-number | Deletes all commits made after the specified one, as well as stage and working directory |
 |git reset HEAD~N | (Substitute N with a number) You can use this notation to delete the last N commits with any reset |
 
-### Branches
+#### Branches
 
 | Syntax | Description |
 |---|---|
@@ -672,7 +671,7 @@ PRACTICE:
 |git rebase branch-name |Reorganizes the commits in the current branch to apply after those from the specified branch |
 |git cherry-pick commit-hash |Copy the specified commit to the current branch and gives it a different hash |
 
-### Stash
+#### Stash
 
 | Syntax | Description |
 |---|---|
@@ -684,7 +683,7 @@ PRACTICE:
 |git stash drop |Deletes the last stash |
 |git stash drop stash@{index} |Deletes the specified stash |
 
-### Git Remote
+#### Git Remote
 
 | Syntax | Description |
 |---|---|
@@ -694,7 +693,7 @@ PRACTICE:
 |git fetch origin branch-name |Downloads the changes from a remote repository and save them in origin/branch-name |
 |git merge origin/branch-name |Merges the previously downloaded changes from a repository into the branch branch-name |
 
-## Conclusion.
+### 1.17 Conclusion.
 
 If you made it until this part, Congratulations!!!
 

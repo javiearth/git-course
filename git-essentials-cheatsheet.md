@@ -8,10 +8,12 @@
 |git config |Access git configuration options |
 |git init |Initializes the control version of the directory |
 |git status |Shows changes made in stage and working directory since last commit |
+|git restore --staged file-name |Removes changes from the stage, use a dot `.` to remove all changes |
 |git add file-name |Adds changes made in the specified file to the stage |
 |git add . |Adds changes made in the working directory to the stage |
 |git commit -m "your-message" |Commits changes for the stage to the branch |
 |git log |Shows a chronologic backwards history of the commits in the current branch (or add a branch name to show its history)|
+|git log --graph|Shows the history with a graphoc representation of branches and their fussions |
 |git reflog |Shows every move of the HEAD and local references, including resets, deleted commits, rebase, checkouts... |
 |git checkout commit-hash |Recovers the working directory of the specified commit |
 
@@ -27,10 +29,10 @@
 
 | Syntax | Description |
 |---|---|
-|git reset --soft HEAD~N | (Substitute N with a number) Deletes the last N commits but preserves stage and working directory |
 |git reset --soft hash-number | Deletes all commits made after the specified one but preserves stage and working directory |
 |git reset --mixed hash-number | Deletes all commits made after the specified and the stage, but preserves the working directory (default reset, you can use it without '--mixed')|
 |git reset --hard hash-number | Deletes all commits made after the specified one, as well as stage and working directory |
+|git reset HEAD~N | (Substitute N with a number) You can use this notation to delete the last N commits with any reset |
 
 ### Branches
 

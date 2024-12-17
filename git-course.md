@@ -512,10 +512,10 @@ PRACTICE:
 
 | Syntax | Description |
 |---|---|
-|git reset --soft HEAD~N | (Substitute N with a number) Deletes the last N commits but preserves stage and working directory |
 |git reset --soft hash-number | Deletes all commits made after the specified one but preserves stage and working directory |
 |git reset --mixed hash-number | Deletes all commits made after the specified and the stage, but preserves the working directory (default reset, you can use it without '--mixed')|
 |git reset --hard hash-number | Deletes all commits made after the specified one, as well as stage and working directory |
+|git reset HEAD~N | (Substitute N with a number) You can use this notation to delete the last N commits with any reset |
 
 ### Branches
 

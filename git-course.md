@@ -574,10 +574,8 @@ To update any changes, you can use push to update the history of a branch in you
 `$ git push origin branch-name`
 
 Example:
-```
-$ git push origin main
-$ git push origin develop
-```
+
+`$ git push origin main`
 
 You don't need to push all branches, but you can and it I recommend it, so you have a remote copy of your work.
 
@@ -614,6 +612,7 @@ The command `$ git pull origin main` is simmilar to:
 $ git fetch origin main
 $ git merge origin/main
 ```
+*Remember to switch to your local branch main before merge*
 
 ```
 PRACTICE:

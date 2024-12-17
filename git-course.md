@@ -1,5 +1,5 @@
 # Git course
-Version: 0.1.0
+Version: 0.2.0
 
 ## About this course.
 
@@ -482,6 +482,143 @@ PRACTICE:
 11. Clean the stash completely.
 ```
 
+## Git remote
+
+In spite that git is very useful working in local, it shanes in cloud environments where teams of software developers work remotely. There are different solutions for that (GitHub, GitLab, Bitbucket, SourceForge...), but the commands you'll use to work with your remote repository are the same, no matter in which platform it is located.
+
+These platforms store repositories in the cloud, so teams of developers can work remotely in the same project. The repositories are the same you have in your machine, but they are accesible from anywhere. The only thing that changes is where they are located. The way you work is the same with the diference that you have to send or request information from the remote repository in a few ocassions.
+
+### Authentication
+
+You need to authenticate to the platform to access the remote repository. There are different options to authenticate but SSH keys are widely spreaded and they are very secure. 
+
+A SSH (Secure Shell) key is a pair of keys, one public an another private, used to encrypt the commuication between your computer and a server, so you don't have to use a password everytime you access to a remote repository.
+
+Now, let's see how to connect to a remote repository.
+
+**Generating a SSH key**
+
+In the linux terminal type:
+
+`$ ssh-keygen -t ed25519 -C "your-email@mail.com"`
+
+Be sure that the e-mail you write between the double quotes is one verified in the platform where the repository is located (GitHub, GitLab, etc).
+
+The terminal will ask for a passphrase, you can just press enter if you don't want to add it. Then will ask for a directory to save the ssh key, you can press enter again to save it in the default directory (somthing similar to /username/home). After that, a .ssh directory is created in the directory you chose (the dot mean it is a hidden directory).
+
+**Add the key to the agent**
+
+Type the two following commands:
+```
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_ed25519
+```
+The first one starts the ssh agent and the second adds the ssh that is stored in the id_25519 subdirectory inside .ssh.
+
+**Copy the PUBLIC SSH key**
+
+Notice that PUBLIC is capital letters :)
+
+Access to the file where your public SSH key is located and copy it, from the begining (ssh-ed25519).
+
+**Save your public SSH in the platform**
+
+The key you've just copy must be added to your account in the platform you're using (try seaching something similar to setting > authentication > SSH).
+
+### Conecting to the repository for the first time.
+
+Create a new repository in your account, for example, I created git-course in GitHub for this course. The full URL is https://guthub.com/javiearth/git-course. **IMPORTANT** Do not add any file (e.g., README.md) because it creates conflicts that you have to solve later.
+
+Once your repository is created, configure it:
+
+**Configuration**
+
+Open a terminal in the diretory of your project (where you wrote `git init`) and type:
+
+`$ git remote add origin git@platform.com:username/repository-name.git`
+
+If your repository is named calculator, your username is superhero96 and you platform is GitHub, it would be something like this:
+
+`$ git remote add origin git@github.com:superhero96/calculator`
+
+**Verify**
+
+If you did it right it should work. Verify everything is ok with this command:
+
+`$ git remote -v`
+
+You should see something like this:
+
+```
+origin
+git@github.com:username/repository-name.git(fetch)
+git@github.com:username/repository-name.git(push)
+```
+
+### Working in your own remote repository
+
+You can start sharing your developing skills to the world by uploading to the cloud your own individual repository (or you cam make it private, it doesn't change anything about how you work).
+
+The way you work in an individual repository is working with git locally in your computer and after finishing some work (committing, merging branches, etc.) you update the remote repository.
+
+**Updating your repository with PUSH**
+
+To update any changes, you can use push to update the history of a branch in your remote repository. Use:
+
+`$ git push origin branch-name`
+
+Example:
+```
+$ git push origin main
+$ git push origin develop
+```
+
+You don't need to push all branches, but you can and it I recommend it, so you have a remote copy of your work.
+
+**Updating your local repository with PULL**
+
+If for some reason you made changes in your remote repository but not in the local repository, you can update your local repository using `pull`.
+
+This is usefull if you work in different computers, so sometimes you update the remote repository from one of your PCs but then you need to update the repository in the other computer. **Important**: before pull a branch from your remote repository, switch to the right branch in your local repository.
+
+`$ git pull origin branch-name`
+
+Example:
+```
+$ git switch main
+$ git pull origin main
+$ git checkout develop
+$ git pull origin develop
+```
+
+**How PULL works?** (Optional)
+
+The command `git pull` is actually a combination of two different commands that you can use separately.
+
+- FETCH:
+First, the command `git pull` downloads the changes done from the remote repository (as an individual operation, this is called 'fetch' and is also a command) and save the branch as origin/branch-name. You'll received information about changes done in the remote repository.
+
+- MERGE:
+You already know merge. The second part of the command `git pull` is to merge origin/branch-name into branch-name. 
+
+Summaryzing:
+
+The command `$ git pull origin main` is simmilar to:
+```
+$ git fetch origin main
+$ git merge origin/main
+```
+
+```
+PRACTICE:
+
+1. Create a remote repository in GitHub, GitLab or any platform of your election.
+2. Create a repository in your computer and start a version control with it. Add one file.
+3. Update the remote repository.
+4. Edit the file, upload a file or create one in the remote repository using the options you have in its website.
+5. Update the local repository.
+```
+
 ## Git Essentials cheatsheet
 
 ### Basic commands
@@ -542,13 +679,36 @@ PRACTICE:
 |git stash drop |Deletes the last stash |
 |git stash drop stash@{index} |Deletes the specified stash |
 
+### Git Remote
+
+| Syntax | Description |
+|---|---|
+|git add origin git@github.com:username/repository-name.git | Connects a remote repository to the local current one |
+|git push origin branch-name |Uploads the local changes in a branch to the remote repository |
+|git pull origin branch-name |Downloads the changes from a repository and merges them in the current branch |
+|git fetch origin branch-name |Downloads the changes from a remote repository and save them in origin/branch-name |
+|git merge origin/branch-name |Merges the previously downloaded changes from a repository into the branch branch-name |
+
 ## Conclusion.
+
+If you made it until this part, Congratulations!!!
+
+The current state of the course is:
+
+- [X] Git Essentials: covers day to day tasks.
 
 We have seen all the git commands you need to start using git as a version control programm of your work. This covers most of the things you'll be using while working in software development. Git is simple and powerful.
 
-In spite that git is very useful working in local, it shanes in cloud environments where teams of software developers work remotely. There are different solutions for that (GitHub, GitLab...). We'll cover this soon.
+- [] Git Intermediate: good practices and more in deep knowledge of the basics.
 
-Thank you for using this course to learn git, your feedback will be highly appreciated. You can contact the author of this course by e-mail to contact@javimolina.dev
+Coming soon.
+
+- [] Git Advanced: covers advanced tasks only senior levels professionals will use.
+
+Coming soon.
+
+**Thank you for using this course to learn git, your feedback will be highly appreciated. You can contact the author of this course by e-mail to contact@javimolina.dev**
+
 
 ## License
 

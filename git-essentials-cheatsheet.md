@@ -59,5 +59,15 @@
 |git stash drop |Deletes the last stash |
 |git stash drop stash@{index} |Deletes the specified stash |
 
+### Git Remote
+
+| Syntax | Description |
+|---|---|
+|git add origin git@github.com:username/repository-name.git | Connects a remote repository to the local current one |
+|git push origin branch-name |Uploads the local changes in a branch to the remote repository |
+|git pull origin branch-name |Downloads the changes from a repository and merges them in the current branch |
+|git fetch origin branch-name |Downloads the changes from a remote repository and save them in origin/branch-name |
+|git merge origin/branch-name |Merges the previously downloaded changes from a repository into the branch branch-name |
+
 ---
 <small>Licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) by [Javi Molina (JaviEarth)](https://github.com/javiearth).</small>

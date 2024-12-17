@@ -368,7 +368,7 @@ PRACTICE (important):
 1. Create a new branch with the name 'new-recipes' and switch to it.
 2. Add the hummus recipe that you'll find in [example recipes](https://github.com/javiearth/git-course/example-recipes.md) to the file recipes.md.
 3. Commit the changes.
-4. Add the sweet potato cream recipe and commit the changes again.
+4. Add the Banana Oat Pancakes recipe and commit the changes again.
 (Do not delete the branch neither merge it, we'll use it to learn something new in the next section!)
 ```
 
@@ -387,7 +387,7 @@ $ git checkout main
 $ git cherry-pick 6c3fb3825e4982f665eda06ecf94e04f868cb3ec
 (obviously you'll have another hash)
 ```
-Open the file recipe.md and take a look. Only the second recipe (sweet potato cream) has been added to the file, but the hummus recipe is missing. This is because you've only applied the changes done in the second commit.
+Open the file recipe.md and take a look. Only the second recipe (Banana Oat Pancakes has been added to the file, but the hummus recipe is missing. This is because you've only applied the changes done in the second commit.
 
 ## Conflicts
 

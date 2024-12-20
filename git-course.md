@@ -1,5 +1,5 @@
 # Git course
-<small>Version: 0.2.3</small>
+<small>Version: 0.3.0.</small>
 
 ### About this course.
 
@@ -84,7 +84,7 @@ Create a new directory with the name of our project: awesome-recipes ( $ mkdir a
 
 `$ git init`
 
-Git shows a message indicating that the the git repository is initialized. It also tells you that it has created a default branch for yout project, we'll learn about that a bit later.
+Git displays a message confirming the repository has been initialized. It also tells you that it has created a default branch for yout project, we'll learn about that a bit later.
 
 The command `git init` creates a hidden subdirectory (.git), but you don't need to know anything about it, you won't use it, git manages it for you.
 
@@ -152,6 +152,8 @@ After each commit hash, the log shows its author and the date it was created, as
 
 This structure will be repeated for each commit.
 
+*Note: see "1.16 Introduction to good practices" at the end of the section "Git Essentials" to know more about how to write commit messages more efficiently, you can skip that for now.*
+
 ### 1.6 How git works: staging and working directory
 
 Before moving any forward it is useful to clarify some concepts:
@@ -160,14 +162,14 @@ Before moving any forward it is useful to clarify some concepts:
 
 - **Stage**: is the place where git stores all changes to apply to the repository with the next commit. When you use `git add` git prepares those files added, storing the changes made since the last commit until you've added them to the stage. If for some reason you make changes after using git add in one of the files added to the stage, you'll need to use `git add` again because those new changes are not in the stage area ready to commit.
 
-Bonus command!
-Did you add changes to the stage but now you regret it? Don't worry! Use `$ git restore --staged .` to remove all changes from stage <small>(You can type the name of all files yu want to remove from the stage instead of the dot).</small>
+*Bonus command!
+Did you add changes to the stage but now you regret it? Don't worry! Use `$ git restore --staged .` to remove all changes from stage <small>(You can type the name of all files yu want to remove from the stage instead of the dot).</small>*
 
 - **Commit**: a snapshot of the project under development. A commit saves all the changes already added to the stage adding them to the repository.
 
 [Working directory]-----`git add`----> [Stage ]-----`git commit`----> [Repository ]
 
-
+While working in your project you update the files stored in the working directory. The command `git status` compare your working directory (and stage) with the last snapshot of your project detecting any changes. Git displays in red the name of any file that has been modified in your working directory. Then, you can use `git add` to add some or all the files that have been modified to the stage. The changes added to the stage are ready to commit, so if you run `$ git stastus` again git displays them in green. After commit, git saves a snapshot of all the files ready to commit (those saved to the stage).
 
 ### 1.7 Moving among commits.
 
@@ -335,8 +337,8 @@ After testing the new version of our project and check that everything works as 
 The merge command (`$ git merge branch-name`) combines the whole history of the specified branch into the current branch and creates a new special commit known as merge commit.
 
 ```
-main   :--Commit_A---Commit_B---------Commit_E(merge commit)
-feature:               \---Commit_C---Commit_D
+main   :--A---B---------------E(merge commit)
+feature:        \---C---D---/
 ```
 
 To merge the new branch into 'main' we must first switch to the branch 'main'. Let's do this merge operation:
@@ -389,6 +391,18 @@ $ git cherry-pick 6c3fb3825e4982f665eda06ecf94e04f868cb3ec
 ```
 Open the file recipe.md and take a look. Only the second recipe (Banana Oat Pancakes has been added to the file, but the hummus recipe is missing. This is because you've only applied the changes done in the second commit.
 
+Before cherry-pick:
+```
+main:       ---A---B--
+new-recipes:         \---C---D--
+```
+After cherry-pick:
+```
+main:       ---A---B--------------D'--
+new-recipes:         \---C---D--/---
+```
+In this scheme, D' has same content of D but different hash.
+
 ### 1.12 Conflicts
 
 Try to update the branch 'main' with the commits in the branch 'new-recipes'. You can use cherry-pick or merge, it's up to you. 
@@ -425,13 +439,13 @@ In the example I mentioned, the team working in feature can do a rebase in devel
 
 Before rebase:
 ```
-develop:---A---B---E
-feature:     \---C---D
+develop:---A---B---E--
+feature:     \---C---D--
 ```
 After rebase:
 ```
 develop:---A---B---E--
-feature:             \---C'---D'
+feature:             \---C'---D'--
 ```
 Notice that the commits in feature after rebase (C' and D') are different from those before rebase (C and D).
 
@@ -624,7 +638,47 @@ PRACTICE:
 5. Update the local repository.
 ```
 
-### 1.16 Git Essentials cheatsheet
+### 1.16 Introduction to good practices.
+
+This section aims to give you a small introduction to very few tips that may be useful for junior profiles. You'll find much further information about good practices in *Part 2: Git Intermediate* in future updates of this course.
+
+#### 1.16.1 Good practices in commits.
+
+Write clear, brief and structured commit messages. Start by following this tips widely accepted by the develop community.
+
+- Use short capitalized titles summarizing the changes (up to 50 characteres).
+- Write in an imperative tone.
+- Use standard prefix:
+  - feat: for new features
+  - fix: to solve errors
+  - docs: for changes in th edocumentation
+  - style: for formatting changes
+  - refactor: changes that do not alter the functionallity of the software but improve the code
+- Optionally, explain what changed and why using bullet points in small sentences (up to 72 characters).
+
+Here are two different examples to inspire you.
+
+Short commit message:
+
+"feat: Add Spanish omelette recipe to example-recipes.md. and fix typos"
+
+Longer commit message:
+
+"feat: Add about this file section and Banana Oats Pancakes recipe.
+- Added a new About this file section in example-recipes.md
+- Introduced a new Banana Oats Pancakes recipe
+- Fixed links and typos across example-recipes.md
+- Updated preparation method in Hummus recipe for clarity"
+
+#### 1.16.2 Work with branches.
+
+Make changes in specific branches to keep the branch main stable and safe. You can use the format feature/branch-name for new features or any other branch name that is related to the aim of the branch.
+
+Merge the specific branch into the develop branch. This branch is used to incorporate new versions of your software and test them before release the changes in the branch main. 
+
+Main only incorporates significant changes, tested versions of develop. We usually refer to the branch main as production.
+
+### 1.17 Git Essentials cheatsheet
 
 #### Basic commands
 
@@ -694,7 +748,7 @@ PRACTICE:
 |git fetch origin branch-name |Downloads the changes from a remote repository and save them in origin/branch-name |
 |git merge origin/branch-name |Merges the previously downloaded changes from a repository into the branch branch-name |
 
-### 1.17 Conclusion.
+### 1.18 Conclusion.
 
 If you made it until this part, Congratulations!!!
 

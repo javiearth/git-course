@@ -1,11 +1,11 @@
 # Git course
-<small>Version: 0.2.2</small>
+<small>Version: 0.2.3</small>
 
 ### About this course.
 
-This is a brief course that teaches by examples, its aim is to you achive a level of understanding about git enough to work in most projects. 
+This is a brief course that teaches by examples, its aim is to help you achieve a level of understanding about git enough to work in most projects. 
 
-In the course a propose a simple example of a project to apply the concepts I teach, but you can choose other by your own. I will use this example along the whole course so you can practice with me and check if you understand the lessons.
+In the course I propose a simple example of a project to apply the concepts I teach, but you can choose other by your own. I will use this example along the whole course so you can practice with me and check if you understand the lessons.
 
 This course is based on my personal experience practicing Git commands on my computer. The content reflects what I learned through experimentation, asking questions, and researching general concepts online.
 
@@ -54,9 +54,10 @@ PRACTICE:
 5. Check the moving operation succeded using ls.
 6. Copy the file in my-directory-2 to my-directory-1.
 7. Change your working directory to the parent directory of my-directory-1 and my-directory-2.
-8. Detele my-directory-1, my-directory-2 and their content.
+8. Delete my-directory-1, my-directory-2 and their content.
 ```
-<!--<small>See solution in [my git-course repository](https://github.com/javiearth/git-course/git-essentials-solutions.md)
+j<!-- https://github.com/javiearth/git-course/blob/main/example-recipes.md -->
+<!--<small>See solution in [my git-course repository](https://github.com/javiearth/git-course/blob/main/git-essentials-solutions.md)
 That's all, let's start with git.</small>-->
 <small>If you want to practice more commands write 'linux commands cheatsheet' in a search engine.</small>
 
@@ -115,7 +116,7 @@ When we do a commit, git saves a snapshot of our project. You need to add a desc
 
 Git has taken a snapshop of your project. If you run the `git status` command again you'll see there are no changes to save in your git repository, it is up to date.
 
-Let's practice a bit more, write a recipe in recipes.md and save the file (copy the spanish omelette recipe from [example-recipes.md](https://github.com/javiearth/git-course/example-recipes.md) I've created).
+Let's practice a bit more, write a recipe in recipes.md and save the file (copy the Spanish omelette recipe from [example-recipes.md](https://github.com/javiearth/git-course/blob/main/example-recipes.md) I've created).
 
 Run `$ git status` again. You'll see the same as before, because we have modified 'recipes.md' again. 
 
@@ -130,7 +131,7 @@ Now, commit the changes to your repository.
 ```
 Solution:
 $ git add .
-$ git commit -m "Add spanish omelette to recipe.md"
+$ git commit -m "Add Spanish omelette to recipe.md"
 ```
 
 Did you get it? Brilliant!
@@ -188,9 +189,9 @@ This command shows all the commits. Let's take a moment here.
 
 You see the only two commits we've made so far. In the top commit (the newest), next to the hash you see the word 'master', this is the only branch of our project and this means that the last commit in the branch is that one where it is placed.
 
-You also see that the HEAD has moved from the second to the first commit we did, this is because you are working in this version of the project now. So, if you open the directory of the project you'll notice it has come back to a previous version, before adding the spanish omelette recipe (or whatever you added). The changes made to recipes.md are not longer there, we lost our recipe!
+You also see that the HEAD has moved from the second to the first commit we did, this is because you are working in this version of the project now. So, if you open the directory of the project you'll notice it has come back to a previous version, before adding the Spanish omelette recipe (or whatever you added). The changes made to recipes.md are not longer there, we lost our recipe!
 
-You can continue working again in your project from this version as if the last commit never happened, but we want the spanish omelette recipe back, don't we? Let's try something:
+You can continue working again in your project from this version as if the last commit never happened, but we want the Spanish omelette recipe back, don't we? Let's try something:
 
 `$ git checkout master`
 
@@ -200,7 +201,7 @@ Using `git checkout` with the name of a branch moves the HEAD (where we're worki
 
 The command checkout allows us to move between commits, but doesn't change the history of the project.
 
-Let's make an intended error in our recipes.md file by deleting everything regarthing having onions in the recipe (yes, that's actually an error and I don't care about what you think).
+Let's make an intended error in our recipes.md file by deleting everything regarding having onions in the recipe (yes, that's actually an error and I don't care about what you think).
 
 So, this are the lines to remove from recipes.md. Save the file after that.
 ```
@@ -214,7 +215,7 @@ Then use what you already know to save a new version of your project.
 Solution:
 $ git status
 $ git add .
-$ git commit -m "Remove onions from spanish omelette in recipes.md"
+$ git commit -m "Remove onions from Spanish omelette in recipes.md"
 ```
 
 Alright, we made a mistake... No problem, we can fix it with a reset! Type `git reset` followed by the hash of the commit we want to recover.
@@ -225,9 +226,9 @@ Aditionally, you can use `HEAD~N` to select the 'N' commits back. Example:
 
 `$ git reset HEAD~1`
 
-If you use `git reflog` you'll see that 'master' and 'HEAD' have moved to the second newest commit (Add spanish omelette to recipe.md). That means that the last version of the branch master is this commit, and not the newest so if you type `$ git checkout master` you won't recover the last commit. The history of the branch master has been re-written. The commit 'Reove onion from spanish omelette in recipes.md" is no longer a commit of the branch master.
+If you use `git reflog` you'll see that 'master' and 'HEAD' have moved to the second newest commit (Add Spanish omelette to recipe.md). That means that the last version of the branch master is this commit, and not the newest so if you type `$ git checkout master` you won't recover the last commit. The history of the branch master has been re-written. The commit 'Reove onion from Spanish omelette in recipes.md" is no longer a commit of the branch master.
 
-We can recover the the commit where we remove onion from the spanish recipe by using `checkout` (the HEAD won't move but we'll recover the files in the working directory) or with `reset` (the HEAD will move again to that commit). In both cases you need the hash of the commit, you can obtain it with `reflog`.
+We can recover the the commit where we remove onion from the Spanish recipe by using `checkout` (the HEAD won't move but we'll recover the files in the working directory) or with `reset` (the HEAD will move again to that commit). In both cases you need the hash of the commit, you can obtain it with `reflog`.
 
 ```
 Remember:
@@ -365,7 +366,7 @@ The branch asadillo-manchego has served its purpose and is not longer needed, we
 PRACTICE (important):
 
 1. Create a new branch with the name 'new-recipes' and switch to it.
-2. Add the hummus recipe that you'll find in [example recipes](https://github.com/javiearth/git-course/example-recipes.md) to the file recipes.md.
+2. Add the hummus recipe that you'll find in [example recipes](https://github.com/javiearth/git-course/blob/main/example-recipes.md) to the file recipes.md.
 3. Commit the changes.
 4. Add the Banana Oat Pancakes recipe and commit the changes again.
 (Do not delete the branch neither merge it, we'll use it to learn something new in the next section!)
@@ -375,7 +376,7 @@ PRACTICE (important):
 
 If you made it until here, congratulations! You know almost every day to day git commands. Let's celebrate with learning cherry-picking.
 
-The command `cherry-pick` copies one commit of one branch into another and gives it a new hash. It is imortant to know that only takes one commit and no any other previous commits to that one. You'll understand better with an example.
+The command `cherry-pick` copies one commit of one branch into another and gives it a new hash. It is important to know that only takes one commit and no any other previous commits to that one. You'll understand better with an example.
 
 In the last practice, you created a new branch named 'new-recipes' and apply two commits. Try to use cherry-pick to copy the second commit into the branch 'main'. To use the command you need the hash of the commit to copy (`$ git cherry-pick commit-hash`).
 
@@ -485,13 +486,13 @@ PRACTICE:
 
 In spite that git is very useful working in local, it shanes in cloud environments where teams of software developers work remotely. There are different solutions for that (GitHub, GitLab, Bitbucket, SourceForge...), but the commands you'll use to work with your remote repository are the same, no matter in which platform it is located.
 
-These platforms store repositories in the cloud, so teams of developers can work remotely in the same project. The repositories are the same you have in your machine, but they are accesible from anywhere. The only thing that changes is where they are located. The way you work is the same with the diference that you have to send or request information from the remote repository in a few ocassions.
+These platforms store repositories in the cloud, so teams of developers can work remotely in the same project. The repositories are the same as the ones you have in your machine, but they are accessible from anywhere. The only thing that changes is where they are located. The way you work is the same with the diference that you have to send or request information from the remote repository in a few ocassions.
 
 #### 1.15.1 Authentication
 
 You need to authenticate to the platform to access the remote repository. There are different options to authenticate but SSH keys are widely spreaded and they are very secure. 
 
-A SSH (Secure Shell) key is a pair of keys, one public an another private, used to encrypt the commuication between your computer and a server, so you don't have to use a password everytime you access to a remote repository.
+A SSH (Secure Shell) key is a pair of keys, one public an another private, used to encrypt the communication between your computer and a server, so you don't have to use a password everytime you access to a remote repository.
 
 Now, let's see how to connect to a remote repository.
 
@@ -503,7 +504,7 @@ In the linux terminal type:
 
 Be sure that the e-mail you write between the double quotes is one verified in the platform where the repository is located (GitHub, GitLab, etc).
 
-The terminal will ask for a passphrase, you can just press enter if you don't want to add it. Then will ask for a directory to save the ssh key, you can press enter again to save it in the default directory (somthing similar to /username/home). After that, a .ssh directory is created in the directory you chose (the dot mean it is a hidden directory).
+The terminal will ask for a passphrase, you can just press enter if you don't want to add it. Then will ask for a directory to save the ssh key, you can press enter again to save it in the default directory (something similar to /username/home). After that, a .ssh directory is created in the directory you chose (the dot mean it is a hidden directory).
 
 **Add the key to the agent**
 
@@ -606,7 +607,7 @@ You already know merge. The second part of the command `git pull` is to merge or
 
 Summaryzing:
 
-The command `$ git pull origin branch-name` is simmilar to:
+The command `$ git pull origin branch-name` is similar to:
 ```
 $ git fetch origin branch-name
 $ git merge origin/branch-name

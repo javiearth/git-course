@@ -1,5 +1,5 @@
 # Git course
-<small>Version: 0.3.0.</small>
+<small>Version: 0.3.1.</small>
 
 ### About this course.
 
@@ -11,11 +11,11 @@ This course is based on my personal experience practicing Git commands on my com
 
 This course is under development, so new sections will be added in the following weeks/months. The current state of the course is:
 
-- [X] Git Essentials: covers day to day tasks.
+- [X] covers day to day tasks.
 
-- [] Git Intermediate: good practices and more in deep knowledge of the basics.
+- [ ] Git Intermediate: good practices and more in deep knowledge of the basics.
 
-- [] Git Advanced: covers advanced tasks only senior levels professionals will use.
+- [ ] Git Advanced: covers advanced tasks only senior levels professionals will use.
 
 **Important**
 Git commands are the same no matter which OS you're working with. Anyway, the commands in the *installation and previous knowledge* section may be different for you OS. Apart from that, everything should be same in your machine.
@@ -56,7 +56,7 @@ PRACTICE:
 7. Change your working directory to the parent directory of my-directory-1 and my-directory-2.
 8. Delete my-directory-1, my-directory-2 and their content.
 ```
-j<!-- https://github.com/javiearth/git-course/blob/main/example-recipes.md -->
+<!-- https://github.com/javiearth/git-course/blob/main/example-recipes.md -->
 <!--<small>See solution in [my git-course repository](https://github.com/javiearth/git-course/blob/main/git-essentials-solutions.md)
 That's all, let's start with git.</small>-->
 <small>If you want to practice more commands write 'linux commands cheatsheet' in a search engine.</small>
@@ -92,7 +92,7 @@ Now create a new document, I named mine recipes.txt file for example ( $ touch r
 
 Let's see now the status of your project with the following command:
 
-`git status`
+`$ git status`
 
 Git detected that there is a new file in your project working directory that wasn't there before. Git tells you that by showing 'recipes.txt' in red.
 
@@ -318,7 +318,7 @@ There are two ways to change to another branch, one you already know because you
 
 We haven't done any changes yet so if you use `git reflog` you'll see that both branches are in the same commit, and also the head is in that commit pointing (`-->`) to 'asadillo-manchego' because is the branch we are working on.
 
-Copy the recipe from [my repository](https://guthub.com/javiearth/git-course/example-recipes), save the file and apply the changes to the new branch.
+Copy the recipe from [my repository](https://guthub.com/javiearth/git-course/example-recipes.md), save the file and apply the changes to the new branch.
 
 ```
 Solution:
@@ -736,7 +736,7 @@ Main only incorporates significant changes, tested versions of develop. We usual
 |git stash apply |Recovers stage and working directory from the last stash preserving the stash|
 |git stash list |Displays the stash list |
 |git stash drop |Deletes the last stash |
-|git stash drop stash@{index} |Deletes the specified stash |
+|git stash drop stash@{index} |Deletes the specified stash |white_check_mark:
 
 #### Git Remote
 
@@ -758,11 +758,11 @@ The current state of the course is:
 
 We have seen all the git commands you need to start using git as a version control programm of your work. This covers most of the things you'll be using while working in software development. Git is simple and powerful.
 
-- [] Git Intermediate: good practices and more in deep knowledge of the basics.
+- [ ] Git Intermediate: good practices and more in deep knowledge of the basics.
 
 Coming soon.
 
-- [] Git Advanced: covers advanced tasks only senior levels professionals will use.
+- [ ] Git Advanced: covers advanced tasks only senior levels professionals will use.
 
 Coming soon.
 

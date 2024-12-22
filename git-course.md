@@ -1,9 +1,9 @@
 # Git course
-<small>Version: 0.3.1.</small>
+<small>Version: 0.3.2.</small>
 
 ### About this course.
 
-This is a brief course that teaches by examples, its aim is to help you achieve a level of understanding about git enough to work in most projects. 
+This is a brief course that teaches by examples, its aim is to help you achieve a level of understanding about Git enough to work in most projects. 
 
 In the course I propose a simple example of a project to apply the concepts I teach, but you can choose other by your own. I will use this example along the whole course so you can practice with me and check if you understand the lessons.
 
@@ -11,20 +11,20 @@ This course is based on my personal experience practicing Git commands on my com
 
 This course is under development, so new sections will be added in the following weeks/months. The current state of the course is:
 
-- [X] covers day to day tasks.
+- [X] Git Essentials: covers day to day tasks, starting from zero knowledge to junior developers level.
 
-- [ ] Git Intermediate: good practices and more in deep knowledge of the basics.
+- [ ] Git Intermediate: good practices and more in deep knowledge of the basics. Design to give confidence and use Git more efficiently.
 
 - [ ] Git Advanced: covers advanced tasks only senior levels professionals will use.
 
 **Important**
-Git commands are the same no matter which OS you're working with. Anyway, the commands in the *installation and previous knowledge* section may be different for you OS. Apart from that, everything should be same in your machine.
+Git commands are the same no matter which OS you're working with. Anyway, the commands in the *1.3 Installation and 1.4 Previous knowledge* sections may be different for you OS. Apart from that, everything should be same in your machine.
 
 ## 1. Git Essentials
 
 ### 1.1 Introduction to git.
 
-Git is an open-source, distributed, version control software created by Linus Torvalds while working on Linux. While using git we work in local (in our computer only). There are online platforms that use git to and are designed for working teams developing together. Some of the most famous platforms are GitHub and GitLab. A section about how to work with GitHub will be added to this course soon.
+Git is an open-source, distributed, version control software created by Linus Torvalds while working on Linux. While using Git we work in local (in our computer only). There are online platforms that use git too and are designed for working teams developing together. Some of the most famous platforms are GitHub and GitLab.
 
 ### 1.2 Previous knowledge (skip if you are familiar with the Linux terminal).
 
@@ -42,7 +42,7 @@ This is optional but, it is convenient that you learn very few basic commands to
 - `mv` moves a file from one directory to another.
 - `cp` copies a file from one directory to another.
 
-These are Linux commands (little programs which perform an action, you just type them). Words after a Linux commands that start with one or two hyphens are flags. Flags are options that modify the behavior of the commands.
+These are Linux commands (little programs which perform an action, you just type them). Words after a Linux commands that start with one or two hyphens are flags (e.g., -h or --help). Flags are options that modify the behavior of the commands.
 
 ```
 PRACTICE:
@@ -56,18 +56,17 @@ PRACTICE:
 7. Change your working directory to the parent directory of my-directory-1 and my-directory-2.
 8. Delete my-directory-1, my-directory-2 and their content.
 ```
-<!-- https://github.com/javiearth/git-course/blob/main/example-recipes.md -->
 <!--<small>See solution in [my git-course repository](https://github.com/javiearth/git-course/blob/main/git-essentials-solutions.md)
 That's all, let's start with git.</small>-->
 <small>If you want to practice more commands write 'linux commands cheatsheet' in a search engine.</small>
 
 ### 1.3 Installation.
 
-In Unix systems (Linux and MacOS) git is usually already installed. You can check if git is installed just typing `git` on your terminal. Anyway, you can install git typing `sudo apt install git` in the Linux terminal.
+In Unix systems (Linux and MacOS) Git is usually already installed. You can check if Git is installed just typing `git` on your terminal. Anyway, you can install Git typing `sudo apt install git` in the Linux terminal.
 
 ### 1.4 Git configuration.
 
-We need an username and an email to start working with git, so we need to configure git using the next commands:
+We need an username and an email to start working with Git, so we need to configure Git using the next commands:
 
 ```
 $ git config --global user.name "yourusername"
@@ -84,17 +83,17 @@ Create a new directory with the name of our project: awesome-recipes ( $ mkdir a
 
 `$ git init`
 
-Git displays a message confirming the repository has been initialized. It also tells you that it has created a default branch for yout project, we'll learn about that a bit later.
+Git displays a message confirming the repository has been initialized. It also tells you that it has created a default branch for your project, we'll learn about that a bit later.
 
 The command `git init` creates a hidden subdirectory (.git), but you don't need to know anything about it, you won't use it, git manages it for you.
 
-Now create a new document, I named mine recipes.txt file for example ( $ touch recipes.txt ).
+Now create a new document, I named mine 'recipes.txt' ( $ touch recipes.txt ).
 
 Let's see now the status of your project with the following command:
 
 `$ git status`
 
-Git detected that there is a new file in your project working directory that wasn't there before. Git tells you that by showing 'recipes.txt' in red.
+Git detected that there is a new file in your project's working directory that wasn't there before. Git tells you that by showing 'recipes.txt' in red.
 
 You have to tell Git that you want to add 'recipes.txt' to the repository using the command `git add`. You can do so in two different ways:
 
@@ -106,7 +105,7 @@ You have to tell Git that you want to add 'recipes.txt' to the repository using 
 
 `$ git add .`
 
-If you write again `$ git status` you'll see that 'recipes.md' is display in green, that means that git knows now that file is ready to include in your repository, but it hasn't save any state of your working directory yet. To do what is call 'commit changes'.
+If you write again `$ git status` you'll see that 'recipes.md' is displayed in green, that means that git knows now that file is ready to include in your repository, but it hasn't save any state of your working directory yet. To do so use:
 
 `$ git commit -m "your message here"`
 
@@ -116,7 +115,7 @@ When we do a commit, git saves a snapshot of our project. You need to add a desc
 
 Git has taken a snapshop of your project. If you run the `git status` command again you'll see there are no changes to save in your git repository, it is up to date.
 
-Let's practice a bit more, write a recipe in recipes.md and save the file (copy the Spanish omelette recipe from [example-recipes.md](https://github.com/javiearth/git-course/blob/main/example-recipes.md) I've created).
+Let's practice a bit more, write a recipe in recipes.md and save the file (copy the Spanish omelette recipe from [example-recipes.md](https://github.com/javiearth/git-course/blob/main/example-recipes.md)).
 
 Run `$ git status` again. You'll see the same as before, because we have modified 'recipes.md' again. 
 
@@ -136,11 +135,11 @@ $ git commit -m "Add Spanish omelette to recipe.md"
 
 Did you get it? Brilliant!
 
-Let's see the history of our project so far by using another git command:
+Let's see the history of our project so far by using another Git command:
 
 `$ git log`
 
-This command displays all the commits you have done in the current cranch, we'll learn more about braches later, don't worry. Let's take a closer view to the log.
+This command displays all the commits you have done in the current branch, we'll learn more about braches later, don't worry. Let's take a closer view to the log.
 
 At the moment there are only two commits, but you can move along the whole history when it has grown. You can use the '**Q**' key to go back to the terminal and start typing again. 
 
@@ -154,26 +153,27 @@ This structure will be repeated for each commit.
 
 *Note: see "1.16 Introduction to good practices" at the end of the section "Git Essentials" to know more about how to write commit messages more efficiently, you can skip that for now.*
 
-### 1.6 How git works: staging and working directory
+### 1.6 How Git works: staging and working directory
 
 Before moving any forward it is useful to clarify some concepts:
 
 - **Working directory**: is the directory of your project, where all files and subdirectories of your project are located.
 
-- **Stage**: is the place where git stores all changes to apply to the repository with the next commit. When you use `git add` git prepares those files added, storing the changes made since the last commit until you've added them to the stage. If for some reason you make changes after using git add in one of the files added to the stage, you'll need to use `git add` again because those new changes are not in the stage area ready to commit.
+- **Stage**: is the place where git stores all changes to apply to the repository with the next commit. When you use `git add` Git prepares those files added, storing the changes made since the last commit until you've added them to the stage. If for some reason you make changes after using `git add` in one of the files added to the stage, you'll need to use `git add` again because those new changes are not in the stage area ready to commit.
 
 *Bonus command!
-Did you add changes to the stage but now you regret it? Don't worry! Use `$ git restore --staged .` to remove all changes from stage <small>(You can type the name of all files yu want to remove from the stage instead of the dot).</small>*
+Did you add changes to the stage but now you regret it? Don't worry! Use `$ git restore --staged .` to remove all changes from stage <small>(You can type the name of all files you want to remove from the stage instead of the dot).</small>*
 
 - **Commit**: a snapshot of the project under development. A commit saves all the changes already added to the stage adding them to the repository.
 
-[Working directory]-----`git add`----> [Stage ]-----`git commit`----> [Repository ]
+<span style="color:red;">[Working directory]</span>-----`git add`----> <span style="color:green;">[Stage]</span>-----`git commit`----> [Repository]
 
-While working in your project you update the files stored in the working directory. The command `git status` compare your working directory (and stage) with the last snapshot of your project detecting any changes. Git displays in red the name of any file that has been modified in your working directory. Then, you can use `git add` to add some or all the files that have been modified to the stage. The changes added to the stage are ready to commit, so if you run `$ git stastus` again git displays them in green. After commit, git saves a snapshot of all the files ready to commit (those saved to the stage).
+Summary:
+While working in your project you update the files stored in the working directory. The command `git status` compare your working directory (and stage) with the last snapshot (last commit) of your project detecting any changes. Git displays in red the name of any file that has been modified in your working directory. Then, you can use `git add` to add some or all the files that have been modified to the stage. The changes added to the stage are ready to commit, so if you run `$ git stastus` again git displays them in green. After commit, git saves a snapshot of all the files ready to commit (those saved to the stage).
 
 ### 1.7 Moving among commits.
 
-One of the interesting things about a version control program like git is to be able to do and undo changes, so we can recover a version which works in the case something goes wrong while developing.
+One of the interesting things about a version control program like Git is to be able to do and undo changes, so we can recover a version which works in the case something goes wrong while developing.
 
 Let's say that for some reason we want to come back to a previous version of our project. Remember the hash of each commit? Use `git log` and copy the hash of your first commit (that one with the message 'First commit for awesome-recipes, add recipes.md'). Then, write this command:
 
@@ -189,7 +189,7 @@ Now type `git log`. You'll see that you're working on the commit you selected be
 
 This command shows all the commits. Let's take a moment here. 
 
-You see the only two commits we've made so far. In the top commit (the newest), next to the hash you see the word 'master', this is the only branch of our project and this means that the last commit in the branch is that one where it is placed.
+You see the only two commits we've made so far. In the top commit (the newest), next to the hash, you see the word 'master', this is the only branch of our project and this means that the last commit in the branch is that one where it is placed.
 
 You also see that the HEAD has moved from the second to the first commit we did, this is because you are working in this version of the project now. So, if you open the directory of the project you'll notice it has come back to a previous version, before adding the Spanish omelette recipe (or whatever you added). The changes made to recipes.md are not longer there, we lost our recipe!
 
@@ -205,7 +205,7 @@ The command checkout allows us to move between commits, but doesn't change the h
 
 Let's make an intended error in our recipes.md file by deleting everything regarding having onions in the recipe (yes, that's actually an error and I don't care about what you think).
 
-So, this are the lines to remove from recipes.md. Save the file after that.
+So, these are the lines to remove from recipes.md. Save the file after that.
 ```
 - Half of an onion
 4. Chop the half of an onion and add it to the potatoes. Move the mix from while to while.
@@ -228,27 +228,31 @@ Aditionally, you can use `HEAD~N` to select the 'N' commits back. Example:
 
 `$ git reset HEAD~1`
 
-If you use `git reflog` you'll see that 'master' and 'HEAD' have moved to the second newest commit (Add Spanish omelette to recipe.md). That means that the last version of the branch master is this commit, and not the newest so if you type `$ git checkout master` you won't recover the last commit. The history of the branch master has been re-written. The commit 'Reove onion from Spanish omelette in recipes.md" is no longer a commit of the branch master.
+If you use `git reflog` you'll see that 'master' and 'HEAD' have moved to the second newest commit ('Add Spanish omelette to recipe.md'). That means that the last version of the branch master is this commit, and not the newest so if you type `$ git checkout master` you won't recover the last commit. The history of the branch master has been re-written. The commit 'Remove onion from Spanish omelette in recipes.md" is no longer a commit of the branch master.
 
-We can recover the the commit where we remove onion from the Spanish recipe by using `checkout` (the HEAD won't move but we'll recover the files in the working directory) or with `reset` (the HEAD will move again to that commit). In both cases you need the hash of the commit, you can obtain it with `reflog`.
+We can recover the commit where we remove onion from the Spanish recipe by using `checkout` (the HEAD will move to the specific commit, batu the branch name, like master, won't change). You'll recover the files from that commit into your working directory without affecting the branch's current position.
 
 ```
 Remember:
 
-HEAD: points the commit of the current commit you are working on. That means, your working directory reflects the version of that commit.
+HEAD: points to the commit you're currently working on, your working directory reflects the state of this commit.
 
-Branch-name (e.g.:master): shows the current version (commit) of that branch.
+Branch-name (e.g.:master): refers to the latest commit of the branch.
+
+When HEAD is detached (in a different commit that the branch's name), the branch remains in the same commit but you see the version of your project that corresponds to HEAD.
 ```
 
 There are different kind of resets: soft, mixed and hard. 
 
-**All resets** move the HEAD to the commit selected, that means that your working directory shows the version of the commit where HEAD is. And all resets restore the branch history to the commit of the reset.
+<!--**All resets** move the HEAD to the commit selected, that means that your working directory shows the version of the commit where HEAD is. And all resets restore the branch history to the commit of the reset.-->
+
+**All resets** move the HEAD to the commit selected and restore the branch history to this commit.
 
 `reset --soft`: doesn't make anything else, it does not remove any information from the stage or the working directory. The soft reset is very useful when you've made a mistake in the last commit and want to fix it quickly, e.g. when you write a mistake in the last commit's message.
 
-`reset --mixed`: is the reset by defaul, so is the same as if you write just `reset`. It eliminates the stage, so you'll need to use `git add` before commit any changes to your git repository. This kind of reset is useful when you want to undo the last commits but want to check the files before do any more commits.
+`reset --mixed`: is the reset by default, so is the same as if you write just `reset`. It eliminates the stage, so you'll need to use `git add` before commit any changes to your git repository. This kind of reset is useful when you want to undo the last commits but want to check the files before do any more commits.
 
-`reset --hard`: eliminates the stage and doesn't conserve any changes in the working directory. That means that the files in your project directory are re-stablished to the version of the commit selected in the hard reset, no changes done after that commit will remain, so there is nothing to add to the stage or changes to commit. Hard resets are useful when you want to eliminate everything since the last commit, like when you are experimenting, you changed something and it didn't work.
+`reset --hard`: eliminates the stage and doesn't conserve any changes in the working directory. <!--That means that the files in your project directory are re-stablished to the version of the commit selected in the hard reset, no changes done after that commit will remain, so there is nothing to add to the stage or changes to commit. -->Hard resets are useful when you want to eliminate everything since the last commit, like when you are experimenting, you changed something and it didn't work.
 
 Remember that you can use the commit hash or the notation HEAD~N. Example:
 
@@ -304,7 +308,7 @@ That looks more professional!
 
 #### 1.10.2 Creating branches.
 
-Instead of editing the main branch of our project it is a common practice to use another branch where we do the changes just in case something goes wrong. So let's create a new branch to add more recipes. To do so we use `git branch` followed by the name of the new branch. Creat one branch named 'asadillo-manchego'.
+Instead of editing the main branch of our project it is a common practice to use another branch where we do the changes just in case something goes wrong (`$git branch new-branch`). So let's create a new branch to add more recipes. To do so we use `git branch` followed by the name of the new branch. Let's create one branch named 'asadillo-manchego'.
 
 `$ git branch asadillo-manchego`
 
@@ -312,13 +316,13 @@ Instead of editing the main branch of our project it is a common practice to use
 
 #### 1.10.3 Switching between branches.
 
-There are two ways to change to another branch, one you already know because you've used it: checkout (e.g. `$git checkout asadillo-anchego`). But let's try another one that is more modern: `swtich`.
+There are two ways to change to another branch, one you already know because you've used it: checkout (e.g. `$git checkout asadillo-anchego`). But let's try another one that is more modern: `switch`.
 
 `$ git switch asadillo-manchego`
 
 We haven't done any changes yet so if you use `git reflog` you'll see that both branches are in the same commit, and also the head is in that commit pointing (`-->`) to 'asadillo-manchego' because is the branch we are working on.
 
-Copy the recipe from [my repository](https://guthub.com/javiearth/git-course/example-recipes.md), save the file and apply the changes to the new branch.
+Copy the recipe from [my repository](https://github.com/javiearth/git-course/blob/main/example-recipes.md), save the file and apply the changes to the new branch.
 
 ```
 Solution:
@@ -378,7 +382,7 @@ PRACTICE (important):
 
 If you made it until here, congratulations! You know almost every day to day git commands. Let's celebrate with learning cherry-picking.
 
-The command `cherry-pick` copies one commit of one branch into another and gives it a new hash. It is important to know that only takes one commit and no any other previous commits to that one. You'll understand better with an example.
+The command `cherry-pick` copies one commit of one branch into another and gives it a new hash. It is important to know that only takes one commit and no any other previous commits to that one. You'll understand it better with an example.
 
 In the last practice, you created a new branch named 'new-recipes' and apply two commits. Try to use cherry-pick to copy the second commit into the branch 'main'. To use the command you need the hash of the commit to copy (`$ git cherry-pick commit-hash`).
 
@@ -389,7 +393,7 @@ $ git checkout main
 $ git cherry-pick 6c3fb3825e4982f665eda06ecf94e04f868cb3ec
 (obviously you'll have another hash)
 ```
-Open the file recipe.md and take a look. Only the second recipe (Banana Oat Pancakes has been added to the file, but the hummus recipe is missing. This is because you've only applied the changes done in the second commit.
+Open the file recipe.md and take a look. Only the second recipe (Banana Oat Pancakes) has been added to the file, but the hummus recipe is missing. This is because you've only applied the changes done in the second commit.
 
 Before cherry-pick:
 ```
@@ -407,7 +411,7 @@ In this scheme, D' has same content of D but different hash.
 
 Try to update the branch 'main' with the commits in the branch 'new-recipes'. You can use cherry-pick or merge, it's up to you. 
 
-You'll probably recived a message informing about a conflict. Conflicts are common while working with different cranches, but there are ways to solve it. In this case, the two branches have modified the same file. Git stops the operation and shows the conflict inside the file where the conflict occurs. You'll see something similar to this:
+You'll probably recived a message informing about a conflict. Conflicts are common while working with different branches, but there are ways to solve it. In this case, the two branches have modified the same file. Git stops the operation and shows the conflict inside the file where the conflict occurs. You'll see something similar to this:
 
 ```
 *<<<<<<< HEAD
@@ -431,11 +435,11 @@ You can delete the branch 'new-recipes' now.
 
 This is the last command I'll tech you in Git Essentials about working with branches.
 
-Sometimes, usually when developing in teams, there is somebody working in two diferent branches at the same time. Let's say that one team os working in the branch named 'develop', and another team is working in a new feature in the branch named 'feature'. The branch feature was created from develop, but any team stop working so when the feature is ready to merge into the other branch, develop has already been modified with some changes, and the merge operation will create a conflict.
+Sometimes, usually when developing in teams, there is somebody working in two diferent branches at the same time. Let's say that one team is working in the branch named 'develop', and another team is working in a new feature in the branch named 'feature'. The branch feature was created from develop, but none of the teams stopped working so when the feature is ready to merge into the other branch, develop has already been modified with some changes, and the merge operation will create a conflict.
 
-Rebase is very useful in this example. This commands reorganizes the history of one branch in a way that moves all its commits so they are applied after the last commit of another one.
+Rebase is very useful in this example. This command reorganizes the history of one branch in a way that moves all its commits so they are applied after the last commit of another one.
 
-In the example I mentioned, the team working in feature can do a rebase in develop, so the commits in feature are modified in a way that are apply after the changes made in the branch develop while the feature team was working.
+In the example I mentioned, the team working in feature can do a rebase, so the commits in feature are modified in a way that are apply after the changes made in the branch develop while the feature team was working.
 
 Before rebase:
 ```
@@ -461,18 +465,18 @@ By doing so all changes made so far since the las commit are safe in the stash. 
 
 Let's try something. Create a new branch with a name of your choice and switch to it. Add a line at the end of each recipe in the recipe.md file (in Markdown this is done adding three asterisks, three underscores or three dashes in a new line: `***`, `___`, `---`).
 
-Now, try to switch to another branch. The operation will be aborted as there are changes unsaved. Write `git stash` and try again, git allows you to switch between branches now. 
+Now, try to switch to another branch. The operation will be aborted as there are changes unsaved. Write `git stash` and try again, Git allows you to switch between branches now. 
 
 After switching to another branch all changes have been removed from your working directory and the stage, they are hidding somewhere else (in the stash). You won't get the changes back until you recover them from the stash.
 
 To recover something from the stash you can use two different commands:
 
-- `git stash pop`. This recovers the stash and clear it.
-- `git stash apply`. This recovers the changes saved in the stash but doesn't clean it.
+- `$ git stash pop`. This recovers the stash and clear it.
+- `$ git stash apply`. This recovers the changes saved in the stash but doesn't clean it.
 
-You can have several stash saved. You can list them using `$ git stash list`. Use the command and you see a list that starts with the word 'stash' followed by an at and a number between brackets (`stash@{0}`), this is the stash index. You can recover any particular stash using its index (e.g., `$ git stash apply stash@{1}`).
+You can have several stash saved. Using `stash pop` and `stash apply` recovers the last stash by default unless you specify another one. You can list them using `$ git stash list`. Use the command and you see a list that starts with the word 'stash' followed by an at and a number between brackets (`stash@{0}`). This is the stash index. You can recover any particular stash using its index (e.g., `$ git stash apply stash@{1}`).
 
-Stash are a special kind of commits and they will remain saved until you clear the stash area. To clean the stash list you can drop one by one using `$ git stash drop` to clean the newest stash, or `$ git stash drop stash@{index}` to clean a specified stash. You can clear the whole list typing `$ git stash clear`.
+Stashes are a special kind of commits and they will remain saved until you clear the stash area. To clean the stash list you can drop one by one using `$ git stash drop` to clean the newest stash, or `$ git stash drop stash@{index}` to clean a specified stash. You can clear the whole list typing `$ git stash clear`.
 
 ```
 Cleaning the stash:
@@ -483,7 +487,7 @@ $ git stash clear
 
 ```
 PRACTICE:
-1. Only if you didn't do it before: create a new one, make some changes, save the stash, switch to another branch.
+1. Only if you didn't do it before: create a new branch, switch to that one, make some changes in one of the files, save the stash, switch to the previous branch.
 2. Switch again to the new branch.
 3. Open recipe.md and take a look.
 4. List the stash.
@@ -498,7 +502,7 @@ PRACTICE:
 
 ### 1.15 Git remote
 
-In spite that git is very useful working in local, it shanes in cloud environments where teams of software developers work remotely. There are different solutions for that (GitHub, GitLab, Bitbucket, SourceForge...), but the commands you'll use to work with your remote repository are the same, no matter in which platform it is located.
+In spite that Git is very useful working in local, it shanes in cloud environments where teams of software developers work remotely. There are different solutions for that (GitHub, GitLab, Bitbucket, SourceForge...), but the commands you'll use to work with your remote repository are the same, no matter in which platform it is located.
 
 These platforms store repositories in the cloud, so teams of developers can work remotely in the same project. The repositories are the same as the ones you have in your machine, but they are accessible from anywhere. The only thing that changes is where they are located. The way you work is the same with the diference that you have to send or request information from the remote repository in a few ocassions.
 
@@ -518,7 +522,7 @@ In the linux terminal type:
 
 Be sure that the e-mail you write between the double quotes is one verified in the platform where the repository is located (GitHub, GitLab, etc).
 
-The terminal will ask for a passphrase, you can just press enter if you don't want to add it. Then will ask for a directory to save the ssh key, you can press enter again to save it in the default directory (something similar to /username/home). After that, a .ssh directory is created in the directory you chose (the dot mean it is a hidden directory).
+The terminal will ask for a passphrase, you can just press enter if you don't want to add it. Then will ask for a directory to save the ssh key, you can press enter again to save it in the default directory (something similar to /username/home). After that, a .ssh directory is created in the directory you chose (the dot means it is a hidden directory).
 
 **Add the key to the agent**
 
@@ -531,9 +535,11 @@ The first one starts the ssh agent and the second adds the ssh that is stored in
 
 **Copy the PUBLIC SSH key**
 
-Notice that PUBLIC is capital letters :)
+Notice that PUBLIC is in capital letters ;)
 
 Access to the file where your public SSH key is located and copy it, from the begining (ssh-ed25519).
+
+`$ cd ~/.ssh/id_ed25519.pub`
 
 **Save your public SSH in the platform**
 
@@ -542,12 +548,12 @@ The key you've just copy must be added to your account in the platform you're us
 ```
 PRACTICE:
 1. Create a profile in a platform like GitHub or GitLab.
-2. Follow the steps in this section so far and add a SSH key to you GitHub/GitLab account.
+2. Follow the steps in this section so far and add a SSH key to your GitHub/GitLab account.
 ```
 
 #### 1.15.2 Conecting to the repository for the first time.
 
-Create a new repository in your account, for example, I created git-course in GitHub for this course. The full URL is https://guthub.com/javiearth/git-course. **IMPORTANT** Do not add any file (e.g., README.md) because it creates conflicts that you have to solve later.
+Create a new repository in your account, for example, awesome-recipes. The full URL is something like https://github.com/username/awesome-recipes. **IMPORTANT** Do not add any file (e.g., README.md) because it creates conflicts that you have to solve later.
 
 Once your repository is created, configure it:
 
@@ -557,13 +563,13 @@ Open a terminal in the diretory of your project (where you wrote `git init`) and
 
 `$ git remote add origin git@platform.com:username/repository-name.git`
 
-If your repository is named calculator, your username is superhero96 and you platform is GitHub, it would be something like this:
+If your repository is named awesome-recipes, your username is superhero96 and you platform is GitHub, it would be something like this:
 
-`$ git remote add origin git@github.com:superhero96/calculator`
+`$ git remote add origin git@github.com:superhero96/awesome-recipes`
 
 **Verify**
 
-If you did it right it should work. Verify everything is ok with this command:
+Verify everything is ok with this command:
 
 `$ git remote -v`
 
@@ -577,7 +583,7 @@ git@github.com:username/repository-name.git(push)
 
 #### 1.15.3 Working in your own remote repository
 
-You can start sharing your developing skills to the world by uploading to the cloud your own individual repository (or you cam make it private, it doesn't change anything about how you work).
+You can start sharing your developing skills to the world by uploading to the cloud your own individual repository (or you can make it private, it doesn't change anything about how you work with it).
 
 The way you work in an individual repository is working with git locally in your computer and after finishing some work (committing, merging branches, etc.) you update the remote repository.
 
@@ -591,7 +597,7 @@ Example:
 
 `$ git push origin main`
 
-You don't need to push all branches, but you can and it I recommend it, so you have a remote copy of your work.
+You don't need to push all branches, but you can and I recommend it, so you have a remote copy of your work.
 
 **Updating your local repository with PULL**
 
@@ -609,15 +615,15 @@ $ git checkout develop
 $ git pull origin develop
 ```
 
-**How PULL works?** (Optional)
+**How PULL works?** (Optional, skip it if not interested)
 
 The command `git pull` is actually a combination of two different commands that you can use separately.
 
 - FETCH:
-First, the command `git pull` downloads the changes done from the remote repository (as an individual operation, this is called 'fetch' and is also a command) and save the branch as origin/branch-name. You'll received information about changes done in the remote repository.
+First, the command `git pull` downloads the changes done from the remote repository and save the downloaded branch as origin/branch-name. You'll received information about changes done in the remote repository. This part can be done as an individual operation using '$ git fetch origin branch-name')
 
 - MERGE:
-You already know merge. The second part of the command `git pull` is to merge origin/branch-name into branch-name. 
+You already know merge. The second part of the command `git pull` is to merge origin/branch-name into branch-name. It is the same as doing `$ git merge origin/branch-name`.
 
 Summaryzing:
 
@@ -651,7 +657,7 @@ Write clear, brief and structured commit messages. Start by following this tips 
 - Use standard prefix:
   - feat: for new features
   - fix: to solve errors
-  - docs: for changes in th edocumentation
+  - docs: for changes in the documentation
   - style: for formatting changes
   - refactor: changes that do not alter the functionallity of the software but improve the code
 - Optionally, explain what changed and why using bullet points in small sentences (up to 72 characters).

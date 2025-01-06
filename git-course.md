@@ -1,5 +1,5 @@
 # Git course
-<small>Version: 0.3.3.</small>
+<small>Version: 0.3.4.</small>
 
 ### About this course.
 
@@ -13,7 +13,7 @@ The course will have three parts once it is finished. This is the current state 
 
 - [X] [1. Git Essentials:](#1-git-essentials) this part is already published and covers everything you need to use in your junior role: use Git for first time, start using Git for version control, work with branches, work in local and remote and a quick introduction of good practices.
 
-- [] Git Intermediate: it will cover good practices for developers that want to advance in their careers and some other usefull commands to get a more control of your repository.
+- [] Git Intermediate: it will cover good practices for developers that want to advance in their careers and some other useful commands to get a more control of your repository.
 
 - [] Git Advanced: it will cover Git commands for auditory and management, oriented to senior and engineer roles.
 
@@ -22,7 +22,7 @@ Git commands are the same no matter which OS you're working with. Anyway, the co
 
 ## 1. Git Essentials
 
-**Table of contents:**
+##### 1.0 Table of contents:
 1. [1.1 Introduction to Git](#11-introduction-to-git)
 2. [1.2 Previous knowledge](#12-previous-knowledge)
 3. [1.3 Installation](#13-installation)
@@ -40,7 +40,7 @@ Git commands are the same no matter which OS you're working with. Anyway, the co
 15. [1.15 Git remote](#115-git-remote)
 16. [1.16 Introduction to good practices](#116-introduction-to-good-practices)
 17. [1.17 Git Essentials cheatsheet](#117-git-essentials-cheatsheet)
-18. [1.18 Conclusion](#119-conclusion)
+18. [1.18 Conclusion](#118-conclusion)
 
 ### 1.1 Introduction to Git
 
@@ -82,6 +82,8 @@ PRACTICE:
 That's all, let's start with git.</small>-->
 <small>If you want to practice more commands write 'linux commands cheatsheet' in a search engine.</small>
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.3 Installation
 
 In Unix systems (Linux and MacOS) Git is usually already installed. You can check if Git is installed just typing `git` on your terminal. Anyway, you can install Git typing `sudo apt install git` in the Linux terminal.
@@ -98,6 +100,8 @@ $ git config --global user.mail "your@mail.com"
 Aclaration: we write the command `git config` followed by the configuration level (global), followed by the data we want to modify (user's name and user's e-mail). If you just write `git config` it displays a list of different actions to work with the configuration file.
 
 *If you want to work with GitHub is important that you use one of the email addresses you have verified in your GitHub account. GitHub uses email addresses to link all your contributions to your profile.*
+
+[Back to Table of Contents](#10-table-of-contents)
 
 ### 1.5 Starting a version control of your project
 
@@ -175,6 +179,8 @@ This structure will be repeated for each commit.
 
 *Note: see "1.16 Introduction to good practices" at the end of the section "Git Essentials" to know more about how to write commit messages more efficiently, you can skip that for now.*
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.6 How Git works: staging and working directory
 
 Before moving any forward it is useful to clarify some concepts:
@@ -192,6 +198,8 @@ Did you add changes to the stage but now you regret it? Don't worry! Use `$ git 
 
 Summary:
 While working in your project you update the files stored in the working directory. The command `git status` compare your working directory (and stage) with the last snapshot (last commit) of your project detecting any changes. Git displays in red the name of any file that has been modified in your working directory. Then, you can use `git add` to add some or all the files that have been modified to the stage. The changes added to the stage are ready to commit, so if you run `$ git stastus` again git displays them in green. After commit, git saves a snapshot of all the files ready to commit (those saved to the stage).
+
+[Back to Table of Contents](#10-table-of-contents)
 
 ### 1.7 Moving among commits
 
@@ -220,6 +228,8 @@ You can continue working again in your project from this version as if the last 
 `$ git checkout master`
 
 Using `git checkout` with the name of a branch moves the HEAD (where we're working) to the last commit of that branch. Alternatively you can write the hash if you want, but in this case this is faster.
+
+[Back to Table of Contents](#10-table-of-contents)
 
 ### 1.8 Discarding changes and recovering versions
 
@@ -297,6 +307,8 @@ PRACTICE:
 - Is 'hard-reset.txt' in the working directory? If so, delete it.
 ```
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.9 Tagging
 
 Adding comments in every commit is important to track quickly all changes we've done, but it is also important to highlight all versions that are special for some reason. We can do this adding tags to commits. A tag will be highlighted in the log, so we can easily track them.
@@ -315,6 +327,8 @@ To delete a tag use any of these commands:
 `$ git tag --delete tag_name`
 
 > In git commands, you can usually use -d or --delete for deletting options.
+
+[Back to Table of Contents](#10-table-of-contents)
 
 ### 1.10 Branches
 
@@ -400,6 +414,8 @@ PRACTICE (important):
 (Do not delete the branch neither merge it, we'll use it to learn something new in the next section!)
 ```
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.11 Cherry-picking
 
 If you made it until here, congratulations! You know almost every day to day git commands. Let's celebrate with learning cherry-picking.
@@ -429,6 +445,8 @@ new-recipes:         \---C---D--/---
 ```
 In this scheme, D' has same content of D but different hash.
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.12 Conflicts
 
 Try to update the branch 'main' with the commits in the branch 'new-recipes'. You can use cherry-pick or merge, it's up to you. 
@@ -453,6 +471,8 @@ How to solve a conflict?
 
 You can delete the branch 'new-recipes' now.
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.13 Rebase
 
 This is the last command I'll tech you in Git Essentials about working with branches.
@@ -474,6 +494,8 @@ develop:---A---B---E--
 feature:             \---C'---D'--
 ```
 Notice that the commits in feature after rebase (C' and D') are different from those before rebase (C and D).
+
+[Back to Table of Contents](#10-table-of-contents)
 
 ### 1.14 The stash
 
@@ -521,6 +543,8 @@ PRACTICE:
 10. List the stash.
 11. Clean the stash completely.
 ```
+
+[Back to Table of Contents](#10-table-of-contents)
 
 ### 1.15 Git remote
 
@@ -625,7 +649,7 @@ You don't need to push all branches, but you can and I recommend it, so you have
 
 If for some reason you made changes in your remote repository but not in the local repository, you can update your local repository using `pull`.
 
-This is usefull if you work in different computers, so sometimes you update the remote repository from one of your PCs but then you need to update the repository in the other computer. **Important**: before pull a branch from your remote repository, switch to the right branch in your local repository.
+This is useful if you work in different computers, so sometimes you update the remote repository from one of your PCs but then you need to update the repository in the other computer. **Important**: before pull a branch from your remote repository, switch to the right branch in your local repository.
 
 `$ git pull origin branch-name`
 
@@ -642,7 +666,7 @@ $ git pull origin develop
 The command `git pull` is actually a combination of two different commands that you can use separately.
 
 - FETCH:
-First, the command `git pull` downloads the changes done from the remote repository and save the downloaded branch as origin/branch-name. You'll received information about changes done in the remote repository. This part can be done as an individual operation using '$ git fetch origin branch-name')
+First, the command `git pull` downloads the changes done from the remote repository and save the downloaded branch as origin/branch-name. You'll receive information about changes done in the remote repository. This part can be done as an individual operation using '$ git fetch origin branch-name')
 
 - MERGE:
 You already know merge. The second part of the command `git pull` is to merge origin/branch-name into branch-name. It is the same as doing `$ git merge origin/branch-name`.
@@ -666,6 +690,8 @@ PRACTICE:
 5. Update the local repository.
 ```
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.16 Introduction to good practices
 
 This section aims to give you a small introduction to very few tips that may be useful for junior profiles. You'll find much further information about good practices in *Part 2: Git Intermediate* in future updates of this course.
@@ -681,7 +707,7 @@ Write clear, brief and structured commit messages. Start by following this tips 
   - fix: to solve errors
   - docs: for changes in the documentation
   - style: for formatting changes
-  - refactor: changes that do not alter the functionallity of the software but improve the code
+  - refactor: changes that do not alter the functionality of the software but improve the code
 - Optionally, explain what changed and why using bullet points in small sentences (up to 72 characters).
 
 Here are two different examples to inspire you.
@@ -705,6 +731,8 @@ Make changes in specific branches to keep the branch main stable and safe. You c
 Merge the specific branch into the develop branch. This branch is used to incorporate new versions of your software and test them before release the changes in the branch main. 
 
 Main only incorporates significant changes, tested versions of develop. We usually refer to the branch main as production.
+
+[Back to Table of Contents](#10-table-of-contents)
 
 ### 1.17 Git Essentials cheatsheet
 
@@ -776,6 +804,8 @@ Main only incorporates significant changes, tested versions of develop. We usual
 |git fetch origin branch-name |Downloads the changes from a remote repository and save them in origin/branch-name |
 |git merge origin/branch-name |Merges the previously downloaded changes from a repository into the branch branch-name |
 
+[Back to Table of Contents](#10-table-of-contents)
+
 ### 1.18 Conclusion
 
 If you made it until this part, Congratulations!!!
@@ -790,6 +820,7 @@ The current state of the course is:
 
 **Thank you for using this course to learn Git, your feedback will be highly appreciated. You can contact the author of this course by e-mail to contact@javimolina.dev**
 
+[Back to Table of Contents](#10-table-of-contents)
 
 ## License
 
